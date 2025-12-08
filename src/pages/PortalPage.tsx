@@ -1,4 +1,5 @@
-import { useState, useEffect, ReactNode } from "react"
+import { useState, useEffect } from "react"
+import type { ReactNode } from "react"
 import ThemeToggle from "../components/ThemeToggle"
 
 // App logos - imported from public folder
