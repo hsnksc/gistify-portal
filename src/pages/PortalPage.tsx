@@ -133,13 +133,14 @@ export default function PortalPage({ user, onLogout }: PortalPageProps) {
           </div>
 
           <div className="flex items-center gap-4">
-            <div
-              className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full text-sm font-medium"
+            <button
+              onClick={() => handleAppClick("https://notebook.gistify.pro/credits/purchase")}
+              className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full text-sm font-medium hover:scale-105 transition-transform cursor-pointer"
               style={{ backgroundColor: "var(--bg-secondary)", border: "1px solid var(--border-color)" }}
             >
               <span style={{ color: "#f59e0b" }}>⚡</span>
               <span style={{ color: "var(--text-primary)" }}>{credits.toFixed(1)} credits</span>
-            </div>
+            </button>
 
             <ThemeToggle />
 
