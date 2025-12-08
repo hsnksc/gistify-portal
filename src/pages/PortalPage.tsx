@@ -92,7 +92,14 @@ export default function PortalPage({ user, onLogout }: PortalPageProps) {
   }
 
   const handleAppClick = (url: string) => {
-    window.location.href = url
+    // Get token from localStorage and pass it to subdomain via URL param
+    const token = localStorage.getItem('gistify_token')
+    if (token) {
+      const separator = url.includes('?') ? '&' : '?'
+      window.location.href = `${url}${separator}auth_token=${encodeURIComponent(token)}`
+    } else {
+      window.location.href = url
+    }
   }
 
   const getAppLogo = (appId: string) => {
