@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import ThemeToggle from '../components/ThemeToggle'
 
 const API_BASE_URL = 'https://api.gistify.pro'
@@ -13,21 +13,6 @@ const GoogleIcon = () => (
   </svg>
 )
 
-// Gistify Logo SVG
-const GistifyLogo = () => (
-  <svg viewBox="0 0 200 50" className="h-12 w-auto">
-    <defs>
-      <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#667eea" />
-        <stop offset="100%" stopColor="#764ba2" />
-      </linearGradient>
-    </defs>
-    <text x="10" y="38" fontSize="36" fontWeight="700" fontFamily="Space Grotesk, sans-serif" fill="url(#logoGradient)">
-      Gistify
-    </text>
-  </svg>
-)
-
 interface LoginPageProps {
   onLogin: (username: string, password: string) => Promise<void>
 }
@@ -38,6 +23,26 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
   const [error, setError] = useState('')
   const [isLoading, setIsLoading] = useState(false)
   const [isGoogleLoading, setIsGoogleLoading] = useState(false)
+  const [isDark, setIsDark] = useState(false)
+
+  // Tema durumunu takip et
+  useEffect(() => {
+    const checkTheme = () => {
+      const theme = document.documentElement.getAttribute('data-theme')
+      setIsDark(theme === 'dark')
+    }
+    
+    checkTheme()
+    
+    // MutationObserver ile tema değişikliklerini dinle
+    const observer = new MutationObserver(checkTheme)
+    observer.observe(document.documentElement, { 
+      attributes: true, 
+      attributeFilter: ['data-theme'] 
+    })
+    
+    return () => observer.disconnect()
+  }, [])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -98,13 +103,12 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
           {/* Header */}
           <div className="p-8 pb-6 text-center">
             <div className="flex justify-center mb-4">
-              <div className="p-3 rounded-2xl" style={{ background: 'var(--accent-gradient)' }}>
-                <svg className="w-10 h-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-              </div>
+              <img 
+                src={isDark ? '/logos/koyumain.jpg' : '/logos/acikmain.jpg'}
+                alt="Gistify"
+                className="h-32 w-auto rounded-2xl"
+              />
             </div>
-            <GistifyLogo />
             <p className="mt-2 text-sm" style={{ color: 'var(--text-secondary)' }}>
               Sign in to access all Gistify apps
             </p>
