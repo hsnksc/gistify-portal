@@ -8,6 +8,25 @@ function App() {
   const [user, setUser] = useState<{ username: string; email: string } | null>(null)
 
   useEffect(() => {
+    // Check for OAuth callback token in URL
+    const urlParams = new URLSearchParams(window.location.search)
+    const callbackToken = urlParams.get('token')
+    
+    if (callbackToken) {
+      // OAuth callback - store token and clean URL
+      localStorage.setItem('gistify_token', callbackToken)
+      window.history.replaceState({}, '', window.location.pathname)
+      checkAuth(callbackToken)
+      return
+    }
+    
+    // Check for auth/callback path
+    if (window.location.pathname === '/auth/callback') {
+      // Redirect to home if no token
+      window.location.href = '/'
+      return
+    }
+    
     const token = localStorage.getItem('gistify_token')
     if (token) {
       checkAuth(token)
