@@ -5,12 +5,12 @@ import ThemeToggle from "../components/ThemeToggle"
 // App logos - imported from public folder
 const APP_LOGOS: Record<string, { light: string; dark: string }> = {
   pulse: {
-    light: "/logos/pulse-light.png",
-    dark: "/logos/pulse-dark.png",
+    light: "/logos/pulsewhite.jpeg",
+    dark: "/logos/pulseblack.jpeg",
   },
   notebook: {
-    light: "/logos/notebook-light.png",
-    dark: "/logos/notebook-dark.png",
+    light: "/logos/notebooklight.png",
+    dark: "/logos/notebookdark.png",
   },
 }
 
@@ -83,7 +83,11 @@ export default function PortalPage({ user, onLogout }: PortalPageProps) {
       })
       if (response.ok) {
         const data = await response.json()
-        setApps(data.apps)
+        // Filter to only show Notebook and Pulse
+        const filteredApps = data.apps.filter((app: { id: string }) => 
+          app.id === 'notebook' || app.id === 'pulse'
+        )
+        setApps(filteredApps.length > 0 ? filteredApps : DEFAULT_APPS)
         setCredits(data.user?.credits || 0)
       }
     } catch (error) {
@@ -122,14 +126,11 @@ export default function PortalPage({ user, onLogout }: PortalPageProps) {
       >
         <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="p-2 rounded-xl" style={{ background: "var(--accent-gradient)" }}>
-              <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-              </svg>
-            </div>
-            <span className="text-xl font-bold" style={{ fontFamily: "Space Grotesk, sans-serif" }}>
-              Gistify
-            </span>
+            <img 
+              src={isDark ? "/logos/dark.png" : "/logos/light.png"}
+              alt="Gistify"
+              className="h-16 w-auto"
+            />
           </div>
 
           <div className="flex items-center gap-4">
