@@ -22,6 +22,13 @@ const AmazonIcon = () => (
   </svg>
 )
 
+// X (Twitter) Icon SVG
+const XIcon = () => (
+  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+  </svg>
+)
+
 interface LoginPageProps {
   onLogin: (username: string, password: string) => Promise<void>
 }
@@ -33,6 +40,7 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
   const [isLoading, setIsLoading] = useState(false)
   const [isGoogleLoading, setIsGoogleLoading] = useState(false)
   const [isAmazonLoading, setIsAmazonLoading] = useState(false)
+  const [isXLoading, setIsXLoading] = useState(false)
   const [isDark, setIsDark] = useState(false)
 
   // Tema durumunu takip et
@@ -107,6 +115,27 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
       setError('Failed to connect to authentication server')
     } finally {
       setIsAmazonLoading(false)
+    }
+  }
+
+  const handleXLogin = async () => {
+    setIsXLoading(true)
+    setError('')
+    
+    try {
+      const response = await fetch(`${API_BASE_URL}/api/v1/auth/x/login`)
+      const data = await response.json()
+      
+      if (data.auth_url) {
+        // Redirect to X OAuth
+        window.location.href = data.auth_url
+      } else {
+        setError('Failed to initiate X login')
+      }
+    } catch (err) {
+      setError('Failed to connect to authentication server')
+    } finally {
+      setIsXLoading(false)
     }
   }
 
@@ -285,6 +314,34 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
                 <>
                   <AmazonIcon />
                   Continue with Amazon
+                </>
+              )}
+            </button>
+
+            {/* X (Twitter) Login Button */}
+            <button
+              type="button"
+              onClick={handleXLogin}
+              disabled={isXLoading}
+              className="w-full mt-3 py-3 px-4 rounded-xl font-medium transition-all transform hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3"
+              style={{ 
+                backgroundColor: '#000',
+                border: '1px solid #333',
+                color: '#fff',
+              }}
+            >
+              {isXLoading ? (
+                <span className="flex items-center justify-center gap-2">
+                  <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                  </svg>
+                  Connecting...
+                </span>
+              ) : (
+                <>
+                  <XIcon />
+                  Continue with X
                 </>
               )}
             </button>
