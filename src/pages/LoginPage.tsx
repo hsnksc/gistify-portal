@@ -13,6 +13,15 @@ const GoogleIcon = () => (
   </svg>
 )
 
+// Amazon Icon SVG
+const AmazonIcon = () => (
+  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M13.958 10.09c0 1.232.029 2.256-.591 3.351-.502.891-1.301 1.44-2.186 1.44-1.214 0-1.922-.924-1.922-2.292 0-2.692 2.415-3.182 4.7-3.182v.683zm3.186 7.705c-.209.189-.512.201-.745.074-1.052-.872-1.238-1.276-1.814-2.106-1.734 1.767-2.962 2.297-5.209 2.297-2.66 0-4.731-1.641-4.731-4.925 0-2.565 1.391-4.309 3.37-5.164 1.715-.754 4.11-.891 5.942-1.095v-.41c0-.753.06-1.642-.383-2.294-.385-.579-1.124-.82-1.775-.82-1.205 0-2.277.618-2.54 1.897-.054.285-.261.567-.549.582l-3.061-.333c-.259-.056-.548-.266-.472-.66C6.057 1.926 9.311 1 12.152 1c1.435 0 3.313.383 4.444 1.473 1.435 1.335 1.298 3.115 1.298 5.054v4.58c0 1.378.572 1.981 1.11 2.726.187.265.229.582-.009.778-.595.5-1.651 1.425-2.234 1.94l-.617.244z"/>
+    <path d="M20.176 19.006c-2.171 1.685-5.314 2.586-8.024 2.586-3.797 0-7.216-1.519-9.802-4.047-.204-.195-.022-.461.222-.311 2.792 1.761 6.244 2.82 9.808 2.82 2.405 0 5.049-.539 7.481-1.656.367-.171.675.26.315.608z"/>
+    <path d="M21.211 17.707c-.277-.378-1.832-.179-2.532-.09-.212.027-.245-.171-.054-.314 1.241-.924 3.278-.658 3.516-.348.238.313-.063 2.476-1.227 3.509-.179.159-.349.074-.27-.136.262-.695.849-2.244.567-2.621z"/>
+  </svg>
+)
+
 interface LoginPageProps {
   onLogin: (username: string, password: string) => Promise<void>
 }
@@ -23,6 +32,7 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
   const [error, setError] = useState('')
   const [isLoading, setIsLoading] = useState(false)
   const [isGoogleLoading, setIsGoogleLoading] = useState(false)
+  const [isAmazonLoading, setIsAmazonLoading] = useState(false)
   const [isDark, setIsDark] = useState(false)
 
   // Tema durumunu takip et
@@ -76,6 +86,27 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
       setError('Failed to connect to authentication server')
     } finally {
       setIsGoogleLoading(false)
+    }
+  }
+
+  const handleAmazonLogin = async () => {
+    setIsAmazonLoading(true)
+    setError('')
+    
+    try {
+      const response = await fetch(`${API_BASE_URL}/api/v1/auth/amazon/login`)
+      const data = await response.json()
+      
+      if (data.auth_url) {
+        // Redirect to Amazon OAuth
+        window.location.href = data.auth_url
+      } else {
+        setError('Failed to initiate Amazon login')
+      }
+    } catch (err) {
+      setError('Failed to connect to authentication server')
+    } finally {
+      setIsAmazonLoading(false)
     }
   }
 
@@ -226,6 +257,34 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
                 <>
                   <GoogleIcon />
                   Continue with Google
+                </>
+              )}
+            </button>
+
+            {/* Amazon Login Button */}
+            <button
+              type="button"
+              onClick={handleAmazonLogin}
+              disabled={isAmazonLoading}
+              className="w-full mt-3 py-3 px-4 rounded-xl font-medium transition-all transform hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3"
+              style={{ 
+                background: 'linear-gradient(to bottom, #f7d066 0%, #f0c14b 100%)',
+                border: '1px solid #a88734',
+                color: '#111',
+              }}
+            >
+              {isAmazonLoading ? (
+                <span className="flex items-center justify-center gap-2">
+                  <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                  </svg>
+                  Connecting...
+                </span>
+              ) : (
+                <>
+                  <AmazonIcon />
+                  Continue with Amazon
                 </>
               )}
             </button>
