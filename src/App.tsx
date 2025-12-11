@@ -12,18 +12,26 @@ function App() {
     const urlParams = new URLSearchParams(window.location.search)
     const callbackToken = urlParams.get('token')
     
+    // Handle /auth/callback path (from OAuth providers)
+    if (window.location.pathname === '/auth/callback') {
+      if (callbackToken) {
+        // OAuth callback - store token and redirect to home
+        localStorage.setItem('gistify_token', callbackToken)
+        // Use replace to avoid adding to history, redirect to clean URL
+        window.location.replace('/')
+        return
+      } else {
+        // No token in callback, redirect to home
+        window.location.replace('/')
+        return
+      }
+    }
+    
+    // Handle token in query params on any page (legacy support)
     if (callbackToken) {
-      // OAuth callback - store token and clean URL
       localStorage.setItem('gistify_token', callbackToken)
       window.history.replaceState({}, '', window.location.pathname)
       checkAuth(callbackToken)
-      return
-    }
-    
-    // Check for auth/callback path
-    if (window.location.pathname === '/auth/callback') {
-      // Redirect to home if no token
-      window.location.href = '/'
       return
     }
     
