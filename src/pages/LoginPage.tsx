@@ -164,7 +164,7 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
           <div className="p-8 pb-6 text-center">
             <div className="flex justify-center mb-4">
               <img 
-                src={isDark ? '/logos/koyumain.jpg' : '/logos/acikmain.jpg'}
+                src={isDark ? '/logos/logo-dark.png' : '/logos/logo-light.png'}
                 alt="Gistify"
                 className="h-32 w-auto rounded-2xl"
               />

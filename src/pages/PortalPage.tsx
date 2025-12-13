@@ -2,15 +2,15 @@ import { useState, useEffect } from "react"
 import type { ReactNode } from "react"
 import ThemeToggle from "../components/ThemeToggle"
 
-// App logos - imported from public folder
+// App logos - imported from public folder (all use same Gistify branding)
 const APP_LOGOS: Record<string, { light: string; dark: string }> = {
   pulse: {
-    light: "/logos/pulsewhite.jpeg",
-    dark: "/logos/pulseblack.jpeg",
+    light: "/logos/logo-light.png",
+    dark: "/logos/logo-dark.png",
   },
   notebook: {
-    light: "/logos/notebooklight.png",
-    dark: "/logos/notebookdark.png",
+    light: "/logos/logo-light.png",
+    dark: "/logos/logo-dark.png",
   },
 }
 
@@ -127,7 +127,7 @@ export default function PortalPage({ user, onLogout }: PortalPageProps) {
         <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <img 
-              src={isDark ? "/logos/dark.png" : "/logos/light.png"}
+              src={isDark ? "/logos/logo-dark.png" : "/logos/logo-light.png"}
               alt="Gistify"
               className="h-16 w-auto"
             />
