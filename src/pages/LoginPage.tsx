@@ -365,6 +365,19 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
 
       {/* Footer */}
       <footer className="py-4 text-center text-sm" style={{ color: 'var(--text-secondary)' }}>
+        <div className="flex items-center justify-center gap-4 mb-2">
+          <a href="/privacy" className="hover:underline hover:text-purple-400 transition-colors">
+            Privacy Policy
+          </a>
+          <span>•</span>
+          <a href="/terms" className="hover:underline hover:text-purple-400 transition-colors">
+            Terms of Use
+          </a>
+          <span>•</span>
+          <a href="/legal" className="hover:underline hover:text-purple-400 transition-colors">
+            Legal Notice
+          </a>
+        </div>
         © 2025 Gistify. All rights reserved.
       </footer>
     </div>
