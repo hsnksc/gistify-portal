@@ -1,11 +1,17 @@
 import { useState, useEffect } from 'react'
+import { Routes, Route, useLocation, useNavigate } from 'react-router-dom'
 import LoginPage from './pages/LoginPage'
 import PortalPage from './pages/PortalPage'
+import PrivacyPage from './pages/PrivacyPage'
+import TermsPage from './pages/TermsPage'
+import LegalPage from './pages/LegalPage'
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
   const [user, setUser] = useState<{ username: string; email: string } | null>(null)
+  const location = useLocation()
+  const navigate = useNavigate()
 
   useEffect(() => {
     // Check for OAuth callback token in URL
@@ -13,16 +19,16 @@ function App() {
     const callbackToken = urlParams.get('token')
     
     // Handle /auth/callback path (from OAuth providers)
-    if (window.location.pathname === '/auth/callback') {
+    if (location.pathname === '/auth/callback') {
       if (callbackToken) {
         // OAuth callback - store token and redirect to home
         localStorage.setItem('gistify_token', callbackToken)
         // Use replace to avoid adding to history, redirect to clean URL
-        window.location.replace('/')
+        navigate('/', { replace: true })
         return
       } else {
         // No token in callback, redirect to home
-        window.location.replace('/')
+        navigate('/', { replace: true })
         return
       }
     }
@@ -30,7 +36,7 @@ function App() {
     // Handle token in query params on any page (legacy support)
     if (callbackToken) {
       localStorage.setItem('gistify_token', callbackToken)
-      window.history.replaceState({}, '', window.location.pathname)
+      navigate(location.pathname, { replace: true })
       checkAuth(callbackToken)
       return
     }
@@ -93,11 +99,21 @@ function App() {
     )
   }
 
-  if (!isAuthenticated) {
-    return <LoginPage onLogin={handleLogin} />
-  }
-
-  return <PortalPage user={user} onLogout={handleLogout} />
+  return (
+    <Routes>
+      {/* Public routes - accessible without login */}
+      <Route path="/privacy" element={<PrivacyPage />} />
+      <Route path="/terms" element={<TermsPage />} />
+      <Route path="/legal" element={<LegalPage />} />
+      
+      {/* Auth routes */}
+      <Route path="*" element={
+        !isAuthenticated 
+          ? <LoginPage onLogin={handleLogin} />
+          : <PortalPage user={user} onLogout={handleLogout} />
+      } />
+    </Routes>
+  )
 }
 
 export default App

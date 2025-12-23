@@ -1,0 +1,112 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "language": "Language",
+    "english": "English",
+    "turkish": "Türkçe"
+  },
+  "nav": {
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Use",
+    "legal": "Legal Notice"
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "lastUpdated": "Last Updated",
+    "intro": {
+      "title": "1. Introduction",
+      "content": "Gistify (\"we\", \"our\", or \"the app\") values your privacy. This Privacy Policy explains how we collect, use, and share your data when you use our application."
+    },
+    "collection": {
+      "title": "2. Information We Collect",
+      "content": "To provide our service, we may collect and process the following information:",
+      "personal": "Personal Information: When you log in via third-party services (e.g., GitHub), we may access basic profile information such as authentication tokens, username, and profile picture.",
+      "userContent": "User Content: Notes, code snippets (Gists), and texts you create are processed on your device or the third-party platforms (GitHub) used for synchronization.",
+      "deviceData": "Device and Usage Data: We may collect anonymous technical data such as device model, OS version, and crash logs to improve the app and fix bugs."
+    },
+    "usage": {
+      "title": "3. How We Use Your Data",
+      "content": "We use the collected data for the following purposes:",
+      "item1": "To provide the app's core functionality (note-taking, Gist synchronization).",
+      "item2": "To authenticate your identity and manage your session.",
+      "item3": "To monitor app performance and resolve errors."
+    },
+    "sharing": {
+      "title": "4. Data Sharing and Third Parties",
+      "content": "We never sell your personal data to third parties. However, the app may interact with the following services for functionality:",
+      "github": "GitHub API: Used to synchronize your Gists.",
+      "analytics": "Analytics and Crash Reporting: May process anonymous data for error analysis."
+    },
+    "retention": {
+      "title": "5. Data Retention and Deletion (Account Deletion Policy)",
+      "content": "We retain user data only for as long as necessary to provide the service. In compliance with Google Play User Data Policy, you have the right to request the deletion of your account and associated data.",
+      "inApp": "In-App: You can use the \"Delete Account\" or \"Log Out and Clear Data\" option in the Settings menu.",
+      "webRequest": "Via Web Request: Even if you have uninstalled the app, you can request the deletion of your data by contacting us at support@gistify.pro. Upon your request, all your data (except where legally required to be retained) will be deleted from our servers and records."
+    },
+    "security": {
+      "title": "6. Security",
+      "content": "We use industry-standard encryption methods (HTTPS/SSL) to protect your data. However, please note that no transmission over the internet is 100% secure."
+    },
+    "contact": {
+      "title": "7. Contact Us",
+      "content": "If you have any questions about this Privacy Policy, please contact us:",
+      "email": "Email: support@gistify.pro"
+    }
+  },
+  "terms": {
+    "title": "Terms of Use",
+    "lastUpdated": "Last Updated",
+    "acceptance": {
+      "title": "1. Acceptance of Terms",
+      "content": "By downloading or using the Gistify app (\"Service\"), you agree to be bound by these Terms of Use. If you do not agree, please do not use the application."
+    },
+    "description": {
+      "title": "2. Description of Service",
+      "content": "Gistify is a mobile application that allows users to take notes, edit them, and synchronize content with GitHub Gist, a third-party service."
+    },
+    "accounts": {
+      "title": "3. User Accounts and Security",
+      "item1": "You may need to log in with your GitHub account to access certain features.",
+      "item2": "You are responsible for maintaining the confidentiality of your account credentials.",
+      "item3": "You are solely responsible for all content you create or share through the app."
+    },
+    "intellectual": {
+      "title": "4. Intellectual Property",
+      "app": "The App: All rights, title, and interest in and to the Gistify app (including design, source code, and logo) belong to gistifypro.",
+      "userContent": "User Content: You retain ownership of the notes and code snippets you create. We claim no ownership over your content."
+    },
+    "thirdParty": {
+      "title": "5. Third-Party Services (GitHub)",
+      "content": "Our app utilizes the GitHub API. By using Gistify, you also agree to comply with GitHub's Terms of Service and Privacy Policy. Gistify is not responsible for any downtime, data loss, or API changes occurring on the GitHub platform."
+    },
+    "disclaimer": {
+      "title": "6. Disclaimer of Warranties",
+      "content": "The Service is provided on an \"as is\" and \"as available\" basis. We do not guarantee that the app will be error-free or that your data (notes) will never be lost. We are not liable for any direct or indirect damages resulting from the use of the app."
+    },
+    "changes": {
+      "title": "7. Changes to Terms",
+      "content": "We may update these terms from time to time. Changes become effective immediately upon posting."
+    },
+    "contact": {
+      "title": "8. Contact",
+      "content": "For questions: support@gistify.pro"
+    }
+  },
+  "legal": {
+    "title": "Legal Notice",
+    "publisher": {
+      "title": "Publisher / Developer",
+      "name": "gistifypro",
+      "location": "Istanbul, Turkey",
+      "email": "Email: support@gistify.pro"
+    },
+    "copyright": {
+      "title": "Copyright Notice",
+      "content": "Copyright © 2025 Gistify. All Rights Reserved. The content, text, graphics, and code of this application/website are protected by international copyright laws. Unauthorized copying or reproduction is prohibited."
+    },
+    "externalLinks": {
+      "title": "External Links",
+      "content": "Gistify is not responsible for the content of third-party websites (e.g., GitHub) linked from the application or website. Accessing these links is at the user's own risk."
+    }
+  }
+}

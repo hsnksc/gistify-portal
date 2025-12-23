@@ -1,0 +1,112 @@
+{
+  "common": {
+    "loading": "Yükleniyor...",
+    "language": "Dil",
+    "english": "English",
+    "turkish": "Türkçe"
+  },
+  "nav": {
+    "privacy": "Gizlilik Politikası",
+    "terms": "Kullanım Şartları",
+    "legal": "Yasal Bildirim"
+  },
+  "privacy": {
+    "title": "Gizlilik Politikası",
+    "lastUpdated": "Son Güncelleme",
+    "intro": {
+      "title": "1. Giriş",
+      "content": "Gistify (\"biz\", \"bizim\" veya \"uygulama\") olarak, gizliliğinize önem veriyoruz. Bu Gizlilik Politikası, uygulamamızı kullandığınızda verilerinizin nasıl toplandığını, kullanıldığını ve paylaşıldığını açıklar."
+    },
+    "collection": {
+      "title": "2. Toplanan Bilgiler",
+      "content": "Hizmetimizi sağlamak için aşağıdaki bilgileri toplayabilir ve işleyebiliriz:",
+      "personal": "Kişisel Bilgiler: Uygulamaya üçüncü taraf hizmetler (örneğin GitHub) aracılığıyla giriş yaptığınızda, kimlik doğrulama jetonları (auth tokens), kullanıcı adı ve profil resmi gibi temel profil bilgilerine erişebiliriz.",
+      "userContent": "Kullanıcı İçeriği: Oluşturduğunuz notlar, kod parçacıkları (Gist'ler) ve metinler cihazınızda veya senkronizasyon için kullandığınız üçüncü taraf platformlarda (GitHub) işlenir.",
+      "deviceData": "Cihaz ve Kullanım Verileri: Uygulamayı geliştirmek ve hataları gidermek amacıyla; cihaz modeli, işletim sistemi sürümü ve çökme raporları (Crash logs) gibi anonim teknik veriler toplanabilir."
+    },
+    "usage": {
+      "title": "3. Verilerin Kullanımı",
+      "content": "Topladığımız verileri şu amaçlarla kullanırız:",
+      "item1": "Uygulamanın temel işlevlerini (not alma, Gist senkronizasyonu) sağlamak.",
+      "item2": "Kimliğinizi doğrulamak ve oturumunuzu yönetmek.",
+      "item3": "Uygulama performansını izlemek ve hataları düzeltmek."
+    },
+    "sharing": {
+      "title": "4. Veri Paylaşımı ve Üçüncü Taraflar",
+      "content": "Kişisel verilerinizi asla üçüncü taraflara satmayız. Ancak, uygulama işlevselliği için aşağıdaki hizmetlerle veri etkileşimi olabilir:",
+      "github": "GitHub API: Gist'lerinizi senkronize etmek için kullanılır.",
+      "analytics": "Analitik ve Hata Takibi: Hata analizi için anonim veriler işleyebilir."
+    },
+    "retention": {
+      "title": "5. Veri Saklama ve Silme (Hesap Silme Politikası)",
+      "content": "Kullanıcı verilerini yalnızca hizmeti sağlamak için gerekli olduğu süre boyunca saklarız. Google Play Kullanıcı Verileri Politikası gereği, hesabınızın ve ilişkili verilerinizin silinmesini talep etme hakkına sahipsiniz.",
+      "inApp": "Uygulama İçinden: Ayarlar menüsündeki \"Hesabı Sil\" veya \"Çıkış Yap ve Verileri Temizle\" seçeneğini kullanabilirsiniz.",
+      "webRequest": "Web Yoluyla Talep: Uygulamayı silmiş olsanız dahi, verilerinizin silinmesini talep etmek için support@gistify.pro adresine e-posta göndererek talebinizi iletebilirsiniz. Talebiniz üzerine, yasal zorunluluklar haricindeki tüm verileriniz sunucularımızdan ve kayıtlarımızdan silinecektir."
+    },
+    "security": {
+      "title": "6. Güvenlik",
+      "content": "Verilerinizi korumak için endüstri standardı şifreleme yöntemleri (HTTPS/SSL) kullanıyoruz. Ancak, internet üzerinden yapılan hiçbir iletimin %100 güvenli olmadığını unutmayınız."
+    },
+    "contact": {
+      "title": "7. İletişim",
+      "content": "Bu gizlilik politikası hakkında sorularınız varsa, lütfen bizimle iletişime geçin:",
+      "email": "E-posta: support@gistify.pro"
+    }
+  },
+  "terms": {
+    "title": "Kullanım Şartları",
+    "lastUpdated": "Son Güncelleme",
+    "acceptance": {
+      "title": "1. Koşulların Kabulü",
+      "content": "Gistify uygulamasını (\"Hizmet\") indirerek veya kullanarak, bu Kullanım Koşulları'nı kabul etmiş sayılırsınız. Bu koşulları kabul etmiyorsanız, lütfen uygulamayı kullanmayınız."
+    },
+    "description": {
+      "title": "2. Hizmetin Tanımı",
+      "content": "Gistify, kullanıcıların not almasına, düzenlemesine ve bu içerikleri üçüncü taraf bir hizmet olan GitHub Gist ile senkronize etmesine olanak tanıyan bir mobil uygulamadır."
+    },
+    "accounts": {
+      "title": "3. Kullanıcı Hesapları ve Güvenlik",
+      "item1": "Hizmetin bazı özelliklerini kullanmak için GitHub hesabınızla giriş yapmanız gerekebilir.",
+      "item2": "Hesap bilgilerinizin gizliliğini korumak sizin sorumluluğunuzdadır.",
+      "item3": "Uygulama üzerinden oluşturduğunuz veya paylaştığınız tüm içeriklerden siz sorumlusunuz."
+    },
+    "intellectual": {
+      "title": "4. Fikri Mülkiyet",
+      "app": "Uygulama: Gistify uygulamasının tasarımı, kaynak kodu ve logosuna ait tüm haklar gistifypro'a aittir.",
+      "userContent": "Kullanıcı İçeriği: Oluşturduğunuz notlar ve kod parçacıkları üzerindeki telif hakları size aittir. Biz bu içerikler üzerinde mülkiyet iddia etmeyiz."
+    },
+    "thirdParty": {
+      "title": "5. Üçüncü Taraf Hizmetleri (GitHub)",
+      "content": "Uygulamamız GitHub API kullanmaktadır. Gistify'ı kullanarak, GitHub'ın Hizmet Koşulları'na ve Gizlilik Politikası'na da uymayı kabul edersiniz. GitHub tarafında yaşanan kesintilerden, veri kayıplarından veya API değişikliklerinden Gistify sorumlu tutulamaz."
+    },
+    "disclaimer": {
+      "title": "6. Sorumluluk Reddi",
+      "content": "Hizmet, \"olduğu gibi\" ve \"mevcut olduğu şekilde\" sunulmaktadır. Uygulamanın hatasız olacağını veya verilerinizin (notlarınızın) asla kaybolmayacağını garanti etmiyoruz. Uygulamanın kullanımından doğabilecek doğrudan veya dolaylı zararlardan sorumlu değiliz."
+    },
+    "changes": {
+      "title": "7. Değişiklikler",
+      "content": "Bu koşulları zaman zaman güncelleyebiliriz. Değişiklikler yayınlandığı tarihte yürürlüğe girer."
+    },
+    "contact": {
+      "title": "8. İletişim",
+      "content": "Sorularınız için: support@gistify.pro"
+    }
+  },
+  "legal": {
+    "title": "Yasal Bildirim",
+    "publisher": {
+      "title": "Yayıncı / Geliştirici",
+      "name": "gistifypro",
+      "location": "İstanbul, Türkiye",
+      "email": "E-posta: support@gistify.pro"
+    },
+    "copyright": {
+      "title": "Telif Hakkı Uyarısı",
+      "content": "Copyright © 2025 Gistify. Tüm Hakları Saklıdır. Bu uygulamanın veya web sitesinin içeriği, metinleri, grafikleri ve kodları uluslararası telif hakkı yasalarıyla korunmaktadır. İzinsiz kopyalanması veya çoğaltılması yasaktır."
+    },
+    "externalLinks": {
+      "title": "Dış Bağlantılar",
+      "content": "Gistify, uygulama içinden veya web sitesinden erişilen üçüncü taraf web sitelerinin (örneğin GitHub) içeriğinden sorumlu değildir. Bu bağlantıların riski kullanıcıya aittir."
+    }
+  }
+}

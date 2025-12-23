@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import ThemeToggle from '../components/ThemeToggle'
+import LanguageToggle from '../components/LanguageToggle'
 
 const API_BASE_URL = 'https://api.gistify.pro'
 
@@ -144,8 +145,9 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
       className="min-h-screen flex flex-col"
       style={{ backgroundColor: 'var(--bg-primary)' }}
     >
-      {/* Theme Toggle */}
-      <div className="absolute top-4 right-4">
+      {/* Theme Toggle & Language Toggle */}
+      <div className="absolute top-4 right-4 flex items-center gap-2">
+        <LanguageToggle />
         <ThemeToggle />
       </div>
 
